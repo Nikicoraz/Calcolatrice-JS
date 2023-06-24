@@ -67,8 +67,7 @@ Array.from(document.getElementsByTagName("button")).forEach(e =>{
                 break;
 
             default:
-                const target = event.target as HTMLInputElement
-                result.value += target.textContent;
+                result.value += (event.target as HTMLInputElement).textContent;
                 break;
         }
     });
