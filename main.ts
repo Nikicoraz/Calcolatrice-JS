@@ -10,9 +10,9 @@ function _evaluate(text: string, phase: string){
     let result: number[] = [];
     let splitted = text.split(phase);
     if(phase == "/"){
-        ris = parseInt(splitted[0]);
+        ris = parseFloat(splitted[0]);
         for(let i = 1; i < splitted.length; i++){
-            ris /= parseInt(splitted[i]);
+            ris /= parseFloat(splitted[i]);
         }
         return ris;
     }
@@ -43,12 +43,26 @@ function _evaluate(text: string, phase: string){
 }
 
 function evaluate(text: string){
-    if(!text.match(/^(\d+[\/*+-]?)+$/g)){
+    if(!text.match(/^([\d\.]+[\/*+-]?)+$/g)){
         result.value = "ERROR";
         return;
     }
     result.value = _evaluate(text, "+").toString();
 }
+
+function equalsPressed(){
+    toClear = true;
+    evaluate(result.value);
+}
+
+result.addEventListener("keydown", (e) =>{
+    if(toClear){
+        toClear = false;
+    }
+    if(e.key == "Enter"){
+        equalsPressed();
+    }
+});
 
 Array.from(document.getElementsByTagName("button")).forEach(e =>{
     e.addEventListener("click", (event) =>{
@@ -62,8 +76,7 @@ Array.from(document.getElementsByTagName("button")).forEach(e =>{
                 break;
             
             case "equals":
-                toClear = true;
-                evaluate(result.value);
+                equalsPressed();
                 break;
 
             default:
@@ -72,3 +85,5 @@ Array.from(document.getElementsByTagName("button")).forEach(e =>{
         }
     });
 });
+
+// TODO crea pulsante virgola nell'HTML

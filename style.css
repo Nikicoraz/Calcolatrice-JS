@@ -10,7 +10,7 @@ body{
 
 #keyboard{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 5%;
     row-gap: 10%;
 }
