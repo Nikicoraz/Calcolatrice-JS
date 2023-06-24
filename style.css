@@ -12,7 +12,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 5%;
-    row-gap: 10%;
+    row-gap: 5%;
 }
 
 #keyboard>button{
@@ -34,4 +34,8 @@ body{
     font-weight: bold;
     border: 2px solid var(--dark-baige);
     padding: 0 1rem;
+}
+
+#equals{
+    grid-column: 3 / span 2;
 }
