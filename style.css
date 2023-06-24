@@ -21,6 +21,11 @@ body{
     font-size: 2rem;
     background-color: white;
     border: 2px solid var(--dark-baige);
+    transition: scale 0.2s;
+}
+
+#keyboard>button:hover{
+    scale: 110%;
 }
 
 #keyboard > input{
