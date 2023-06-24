@@ -43,7 +43,7 @@ function _evaluate(text: string, phase: string) {
 }
 
 function evaluate(text: string) {
-    if (!text.match(/^([\d\.]+[\/*+-]?)+$/g)) {
+    if (!text.match(/^([\/*+-]?[\d\.]+)+$/g)) {
         result.value = "ERROR";
         return;
     }
