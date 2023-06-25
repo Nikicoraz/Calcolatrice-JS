@@ -5,6 +5,30 @@ function clear() {
     result.value = "";
 }
 
+function getBetweenParenthesis(text: string, index: number) : string {
+    if (text[index] != "(") {
+        console.error("The index doesn't point to a parenthesis!!!");
+        return "";
+    }
+    let ret = "";
+    let pCount = 0;
+    index++;
+    while (index < text.length) {
+        if(text[index] == "("){
+            pCount++;
+        }else if(text[index] == ")"){
+            if(pCount == 0){
+                break;
+            }else{
+                pCount--;
+            }
+        }
+        ret += text[index];
+        index++;
+    }
+    return ret;
+}
+
 function _evaluate(text: string, phase: string) {
     let ris = 0;
     let result: number[] = [];
