@@ -1,3 +1,4 @@
 node_modules
 main.js
 main.min.js
+package-lock.json
